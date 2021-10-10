@@ -300,6 +300,7 @@ function NewItem(props) {
                                 <label for="remarkSubscriberItem">הערות</label>
                                 <textarea class="form-control" name="remarkSubscriberItem" rows="5" onChange={(e) => { setItemRemark(e.target.value) }} required></textarea>
                             </div>
+
                             <div class="form-group">
                                 <label for="imagesSubscriberItem">הוספת תמונות  <small>עד 6 תמונות </small></label>
                                 <input type="file" accept=".png, .jpg, .jpeg,.svg " name="file" id="filePicker" onChange={qqqqq} class="inputfile" multiple required />
