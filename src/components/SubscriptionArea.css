@@ -1,0 +1,57 @@
+.btn-subscriber-user {
+    line-height: 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 32px;
+    color: #ff7100 ;
+    border: 1px solid #ff7100 ;
+    padding: 40px 30px;
+    margin-right: 20px;
+    background-color: transparent;
+    margin: 30px;
+}
+
+.row-wrapper {
+    /* &:first-child {
+        margin-top: 20vh;
+    } */
+    margin-top: 2vh;
+    max-width: 80vw;
+    text-align: center;
+    margin-left: 10vw;
+}
+.btn-back{
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 18px;
+    background-color: #ff7100 ;
+    border: none;
+    padding: 0px 30px;
+    line-height: 10px;
+    /* height: 40px; */
+    /* top: 15px; */
+    left: 15px; 
+    height: 40px;
+    /* top: 15px; */
+    position: absolute!important;
+
+}
+
+.btn-back-2 {
+    color: #ff7100 ;
+    border: 1px solid #ff7100 ;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 18px;
+    background-color: transparent;
+    padding: 0px 30px;
+    line-height: 10px;
+    height: 40px;
+    position: absolute ;
+    top: 15px;
+    left: 140px;
+}

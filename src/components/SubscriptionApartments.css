@@ -1,0 +1,79 @@
+div {
+    direction: rtl;
+    position: relative;
+}
+
+/* .btn {
+    border-color: rgb(246, 247, 249);;
+    margin-bottom: 1vh;
+} */
+
+.renter-list-wrapper {
+    padding-right: 50px;
+   
+}
+.renter-list-wrapper h3,h5 {
+    text-align: right;
+
+}
+.row-content-wrapper {
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+.row-wrapper {
+    margin-top: 150px;
+}
+
+.renter-item-card {
+    margin: 5px;
+    height: auto;
+    min-width: 400px;
+    width: 100%;
+    color: #3d4449;
+    line-height: 16px;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 0px rgb(255, 255, 255), 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+    padding: 0px;
+}
+
+.card-body {
+    background-color: white;
+    color: #ff7100 ;
+    /* &::after {
+        content: '';
+        width: 2px;
+        position: absolute;
+        left: 1px;
+        top: 0px;
+        height: 100%;
+        background: rgb(34, 193, 195);
+        background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+    } */
+}
+
+.image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+   
+}
+ .card-img {
+        flex-shrink: 0;
+        min-width: 100%;
+        min-height: 100%
+    }
+.btn-add-item {
+    float: left;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 18px;
+    background-color: #ff7100 ;
+    border: none;
+    border-radius: 50%;
+    font-weight: bold;
+    padding: 3px 12px;
+}
