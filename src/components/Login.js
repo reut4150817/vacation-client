@@ -17,10 +17,11 @@ function Login(props) {
     }
 
     return (
-        <div class="d-flex align-items-end justify-content-around " style={{ direction: "rtl" }}>
+        <div class="d-flex align-items-center justify-content-around " style={{ direction: "rtl", height: "100vh" }}>
             <button class=" btn-login" onClick={loginSubscriber}>כניסת מנוי</button>
             <button class=" btn-login" onClick={loginUser} > כניסת משתמש</button >
             <button class="btn-login" onClick={loginManager} > כניסת מנהל</button >
+            {/* <Link /> */}
         </div >
     )
 }

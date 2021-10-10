@@ -55,12 +55,12 @@ body {
     margin: 20px;
 }
 
-.row-wrapper {
+/* .row-wrapper {
     margin-top: 20vh;
     max-width: 80vw;
     text-align: center;
     margin-left: 10vw;
-}
+} */
 
 .error-label {
     float: right;

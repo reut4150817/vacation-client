@@ -15,6 +15,7 @@ import xxx from '../assets/u4.jpg'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import { Carousel } from 'react-responsive-carousel';
+import Login from './Login';
 
 function Home(props) {
     const { getManager, getAllApartmentArea } = props;
@@ -75,10 +76,10 @@ function Home(props) {
                     <div className="carousel-wrapper">
                         <Carousel
                             showStatus={false}
-                            // infiniteLoop={false}
+                            infiniteLoop={true}
                             emulateTouch
                             useKeyboardArrows
-                            axis="vertical"
+                            axis="horginal"
                             autoPlay>
                             <div className="slide-holder">
                                 <img alt="" src={www} />
@@ -150,7 +151,7 @@ function Home(props) {
                             </div>
                         </Carousel>
                     </div>
-
+                    <Login></Login>
                 </div >
             </div >
         </div >
