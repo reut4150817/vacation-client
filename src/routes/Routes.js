@@ -21,8 +21,9 @@ import ManagerArea from '../components/ManagerArea'
 import Messages from '../components/Messages'
 import BrowseApartment from '../components/BrowseApartment'
 import criterionsUser from '../components/criterionsUser'
-import apartmentsLiked from '../components/apartmentsLiked'
+import ApartmentsLiked from '../components/ApartmentsLiked'
 import allApartmentArea from '../components/allApartmentArea'
+import BrowseSubscriber from '../components/BrowseSubscriber'
 const BASE_ADMIN_URL = "/"
 
 export default function Routes(props) {
@@ -142,14 +143,19 @@ export default function Routes(props) {
                     component={BrowseApartment}
                 />
                 <Route
+                    path="/BrowseSubscriber"
+                    exact
+                    component={BrowseSubscriber}
+                />
+                <Route
                     path="/criterionsUser"
                     exact
                     component={criterionsUser}
                 />
                 <Route
-                    path="/apartmentsLiked"
+                    path="/ApartmentsLiked"
                     exact
-                    component={apartmentsLiked}
+                    component={ApartmentsLiked}
                 />
                 <Route
                     path="/allApartmentArea"

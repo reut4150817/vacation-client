@@ -1,4 +1,6 @@
-import React from 'react'
+// import React, { useEffect } from 'react'
+import React, { useEffect } from 'react'
+
 import { connect } from 'react-redux'
 import history from '../config/history'
 import {
@@ -7,8 +9,14 @@ import {
     Switch,
     Router
 } from 'react-router-dom'
-export const apartmentsLiked = (props) => {
-    const { apartments, userExist } = props;
+import { actions } from '../redux/actions/Action'
+
+export const ApartmentsLiked = (props) => {
+    const { apartments, userExist, getAllApartmentsLiked } = props;
+
+    useEffect(() => {
+        getAllApartmentsLiked({ name: userExist.userExist.name, password: userExist.userExist.password })
+    }, []);
 
     return (
         <>
@@ -55,8 +63,9 @@ const mapStateToProps = (state) => ({
     userExist: state.userExist
 })
 
-const mapDispatchToProps = {
+const mapDispatchToProps = dispatch => ({
+    getAllApartmentsLiked: (data) => dispatch(actions.getAllApartmentsLiked({ data })),
 
-}
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(apartmentsLiked)
+export default connect(mapStateToProps, mapDispatchToProps)(ApartmentsLiked)

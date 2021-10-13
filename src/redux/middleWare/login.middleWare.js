@@ -1,4 +1,4 @@
-import Http from '../../config/axios'
+import Http, { HttpFile } from '../../config/axios'
 import { actions } from '../actions/Action'
 import history from '../../config/history'
 import {
@@ -260,6 +260,22 @@ export const getAllApartmentNew = ({ dispatch, getState }) => next => action => 
     }
     return next(action);
 };
+export const getAllSubscriberNew = ({ dispatch, getState }) => next => action => {
+    if (action.type === 'GET_ALL_SUBSCRIBER_NEW') {
+        // dispatch(actions.setFrame({ key: 'isLoading', value: true }))
+        Http.get(`/getAllSubscriberNew`)
+            .then(res => {
+                dispatch(actions.setAllSubscriberNew(res.data))
+                // dispatch(actions.setFrame({ key: 'isLoading', value: false }))
+            })
+            .catch(error => {
+                console.log(error)
+                // dispatch(actions.setFrame({ key: 'isLoading', value: false }))
+            });
+        return;
+    }
+    return next(action);
+};
 
 
 export const additionToApartments = ({ dispatch, getState }) => next => action => {
@@ -268,6 +284,25 @@ export const additionToApartments = ({ dispatch, getState }) => next => action =
         Http.post(`/additionToApartments`, action.payload.data)
             .then(res => {
                 dispatch(actions.setAllApartmantNew(res.data))
+                // dispatch(actions.setFrame({ key: 'isLoading', value: false }))
+            })
+            .catch(error => {
+                console.log(error)
+                // dispatch(actions.setFrame({ key: 'isLoading', value: false }))
+            });
+        return;
+    }
+    return next(action);
+};
+
+export const additionToSubscribers = ({ dispatch, getState }) => next => action => {
+    if (action.type === 'ADDITION_TO_SUBSCRIBERS') {
+        // dispatch(actions.setFrame({ key: 'isLoading', value: true }))
+        Http.post(`/additionToSubscribers`, action.payload.data)
+            .then(res => {
+                dispatch(actions.setAllSubscriberNew(res.data))
+                // Http.get(`/sendEmail`, action.payload.data)
+
                 // dispatch(actions.setFrame({ key: 'isLoading', value: false }))
             })
             .catch(error => {
@@ -354,6 +389,22 @@ export const getAllApartmentsLiked = ({ dispatch, getState }) => next => action 
 export const saveNewItemLiked = ({ dispatch, getState }) => next => action => {
     if (action.type === 'SAVE_NEW_ITEM_LIKED') {
         Http.post(`/saveNewItemLiked`, action.payload.data)
+            .then(res => {
+                console.log(res.data);
+                // dispatch(actions.setIsLoading(false));
+            })
+            .catch(error => {
+                console.log(error)
+                // dispatch(actions.setIsLoading(false));
+            });
+    } return next(action);
+}
+
+
+export const uploadImage = ({ dispatch, getState }) => next => action => {
+    if (action.type === 'UPLOAD_IMAGE') {
+        // dispatch(actions.newApartment({ apartment: action.payload.data }))
+        HttpFile.post(`/uploadImage/yuyu`, action.payload.data)
             .then(res => {
                 console.log(res.data);
                 // dispatch(actions.setIsLoading(false));

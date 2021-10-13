@@ -20,7 +20,7 @@
     margin-left: 10vw;
 } */
 .btn-back{
-    color: white;
+    color: rgb(198 206 212);
     text-align: center;
     text-decoration: none;
     display: block;
@@ -45,7 +45,7 @@
     text-decoration: none;
     display: block;
     font-size: 18px;
-    background-color: transparent;
+    background-color: white;
     /* padding: 0px 30px; */
     /* line-height: 10px; */
     /* height: 40px; */
@@ -69,4 +69,26 @@
      border-radius: 50%;
      font-weight: bold;
  
+}
+.btn-add-subscriber{
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 20px;
+    background-color: #ff7100;
+    border: none;
+    /* width: 4%; */
+    height: 8vh;
+    border-radius: 50%;
+    font-weight: bold;
+
+}
+.sss{
+    color: white;
+
+}
+.sss:hover {
+    color: white;
+
 }

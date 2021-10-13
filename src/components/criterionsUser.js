@@ -34,7 +34,7 @@ export const criterionsUser = (props) => {
     }
     return (
         <>
-            <button class="btn-back" onClick={() => history.goBack()}>אחורה</button>
+            {/* <button class="btn-back" onClick={() => history.goBack()}>אחורה</button> */}
             <div class="divBigC" >
                 {/* <button class="btn-add-item" onClick={addItem}>+</button> */}
                 {/* <h3>רשימת הדירות נופש:</h3> */}

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { actions } from '../redux/actions/Action'
 import './ManagerArea.css'
 export const ManagerArea = (props) => {
-    const { getAllApartmentNew } = props;
+    const { getAllApartmentNew, getAllSubscriberNew } = props;
 
     const logout = () => { }
     const Messages = () => { }
@@ -12,7 +12,13 @@ export const ManagerArea = (props) => {
         getAllApartmentNew()
         history.push('/BrowseApartment')
     }
-    const viewOrders = () => { }
+    const BrowseSubscriber = () => {
+        getAllSubscriberNew()
+
+        history.push('/BrowseSubscriber')
+
+
+    }
     const status = () => { }
     const myOrders = () => { }
 
@@ -22,7 +28,7 @@ export const ManagerArea = (props) => {
             <button class="btn-back-2" onClick={logout}>התנתק</button>
             <div>
                 <div class="row justify-content-center row-wrapper">
-                    <button class="col-md-4 btn-renter-user" onClick={Messages}>עיון בבקשה לפתיחת מנוי</button>
+                    <button class="col-md-4 btn-renter-user" onClick={BrowseSubscriber}>עיון בבקשה לפתיחת מנוי</button>
                 </div>
                 <div class="row justify-content-center row-wrapper">
                     <button class="col-md-4 btn-renter-user" onClick={BrowseApartment}>עיון בבקשה להוספת דירה</button>
@@ -46,6 +52,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => ({
     getAllApartmentNew: () => dispatch(actions.getAllApartmentNew()),
+    getAllSubscriberNew: () => dispatch(actions.getAllSubscriberNew()),
 
 })
 

@@ -8,12 +8,9 @@ div {
     margin-bottom: 1vh;
 } */
 
-.renter-list-wrapper {
-    padding-right: 50px;
-   
-}
+
 .renter-list-wrapper h3,h5 {
-    text-align: right;
+    /* text-align: right; */
 
 }
 .row-content-wrapper {

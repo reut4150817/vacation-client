@@ -10,7 +10,7 @@ import { dataURLtoFile } from '../utility/utility';
 import './NewItem.css'
 
 function NewItem(props) {
-    const { getAllArea, details, saveNewItem, apartments, userExist, newImg, img } = props;
+    const { getAllArea, details, saveNewItem, apartments, userExist, newImg, img, uploadImage } = props;
     const history = useHistory();
 
     const [itemArea, setItemArea] = useState("צפון")
@@ -27,7 +27,8 @@ function NewItem(props) {
     const [itemDefaultPrice, setItemDefaultPrice] = useState("")
     const [itemExtraPrice, setItemExtraPrice] = useState("")
     const [itemRemark, setItemRemark] = useState("")
-    const [itemImg, setItemImg] = useState("")
+    const [itemImg, setItemImg] = useState([])
+    const [render, setRender] = useState([])
 
     const [errorMessage, setErrorMessage] = useState("")
 
@@ -52,31 +53,30 @@ function NewItem(props) {
 
     }
     const qqqqq = (e) => {
-        const file = e.target.files[0];
-        setItemImg(e.target.files[0].name)
-        // setItemImg(e.target.files[0])
-        // setItemImg(e.target.files)
-        // setItemImg(e.target.value)
-        // if (files.length) {
-
-        // var file = dataURLtoFile(files[0], `hello.png`);
-        const reader = new FileReader();
-        reader.onloadend = (e) => {
-            console.log("reader.result", reader.result);
-            console.log(e.target.result)
-
-            var file = dataURLtoFile(e.target.result, `reut hello.png`);
-            console.log('file', file);
-            var fileToUpload = file;
-            var myFile = new FormData();
-            myFile.append("file", fileToUpload);
-            newImg(myFile)
-
+        let arr = itemImg
+        for (let i = 0; i < e.target.files.length; i++) {
+            arr.push(URL.createObjectURL(e.target.files[i]))
         }
+        setItemImg(arr)
+        console.log('itemImg', itemImg);
+
+        // const reader = new FileReader();
+        // reader.onloadend = (e) => {
+        //     console.log("reader.result", reader.result);
+        //     console.log(e.target.result)
+
+        //     var file = dataURLtoFile(e.target.result, `reut hello.png`);
+        //     console.log('file', file);
+        //     var fileToUpload = file;
+        //     var myFile = new FormData();
+        //     myFile.append("file", fileToUpload);
+        //     newImg(myFile)
+
+        // }
         // var file = reader.readAsDataURL(e)
         // reader.readAsText(file);
 
-        var imagee = reader.readAsDataURL(file);
+        // var imagee = reader.readAsDataURL(file);
         // console.log('imagee', imagee);
 
         // reader.onload = e => {
@@ -85,7 +85,7 @@ function NewItem(props) {
         // console.log("umage" + image);
         // 
         // console.log("binaryString" + binaryString);
-        // newImg(file)
+        setRender('file')
         // setItemImg(image)
 
         // console.log(e.target.result);
@@ -100,6 +100,10 @@ function NewItem(props) {
 
 
     const addSubscriberItem = () => {
+
+        var myFile = new FormData();
+        myFile.append("file", itemImg[0]);
+        uploadImage(myFile)
         //בדיקות תקינות
         if (itenName === '') {
             setErrorMessage('חובה להזין שם')
@@ -171,7 +175,7 @@ function NewItem(props) {
                 seasonWeekEndPrice: itemSeasonWeekEndPrice,
                 defaultPrice: itemDefaultPrice,
                 extraPrice: itemExtraPrice,
-                remark: itemRemark
+                remark: itemRemark,
             }
             saveNewItem(item);
         }
@@ -303,7 +307,7 @@ function NewItem(props) {
 
                             <div class="form-group">
                                 <label for="imagesSubscriberItem">הוספת תמונות  <small>עד 6 תמונות </small></label>
-                                <input type="file" accept=".png, .jpg, .jpeg,.svg " name="file" id="filePicker" onChange={qqqqq} class="inputfile" multiple required />
+                                <input type="file" accept="image/* " name="file" id="filePicker" onChange={qqqqq} class="inputfile" multiple required />
                                 <label for="filePicker">לחץ כאן להעלאת תמונות</label>
                                 <img src={img.img[0]} />
                                 {/* <img src={img.img[0].data} /> */}
@@ -312,7 +316,10 @@ function NewItem(props) {
                                     {/* <img *ngFor="let image of newSubscriberItem.Images" [src]="image.data"> */}
                                     {/* <img src={`data:image/jpeg;base64,${itemImg}`} /> */}
                                     {/* <img src={`data:image/jpeg;base64,{itemImg}`} /> */}
-                                    <img src={itemImg} />
+                                    {itemImg.map(item => {
+
+                                        return <img src={item} />
+                                    })}
 
 
                                 </div>
@@ -347,6 +354,7 @@ const mapDispatchToProps = dispatch => ({
     saveNewItem: (data) => dispatch(actions.saveNewItem({ data })),
     getAllArea: () => dispatch(actions.getAllArea()),
     newImg: (data) => dispatch(actions.newImg({ data })),
+    uploadImage: (data) => dispatch(actions.uploadImage({ data })),
 
 
 

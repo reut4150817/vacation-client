@@ -12,6 +12,7 @@ let Http = axios.create({
     }
 });
 
+
 // const user = window.location.pathname.split('/')[2];
 // export const HttpFile = axios.create({
 //     baseURL: `https://files.codes/api/${user}`,
@@ -43,11 +44,11 @@ export const HttpView = axios.create({
     }
 });
 
-// export const HttpFile = axios.create({
-// 	baseURL: `https://files.codes/api/${getDataFromStorage('app-username')}`,
-// 	headers: {
-// 		'authorization': getJwtFromCookie('jwt')
-// 	}
-// });
+export const HttpFile = axios.create({
+    baseURL: `http://localhost:8765/api`,
+    headers: {
+        // "Content-Type": "multipart/form-data"
+    }
+});
 
 export default Http

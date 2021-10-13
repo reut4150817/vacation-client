@@ -6,8 +6,9 @@ const initialState = {
         subscribers: [],
         errorSubscriber: {},
         subscriber: {}
-    }
 
+    },
+    newSubscriber: {}
 
 }
 const subscriberReducer = {
@@ -20,7 +21,10 @@ const subscriberReducer = {
     },
     existingSubscription(state, action) {
         state.subscribers.subscriber = action.payload
-    }
+    },
+    setAllSubscriberNew(state, action) {
+        state.newSubscriber = action.payload
+    },
 
 }
 

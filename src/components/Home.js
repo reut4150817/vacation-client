@@ -151,7 +151,7 @@ function Home(props) {
                             </div>
                         </Carousel>
                     </div>
-                    <Login></Login>
+                    {/* <Login></Login> */}
                 </div >
             </div >
         </div >
