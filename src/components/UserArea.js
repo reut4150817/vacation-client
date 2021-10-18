@@ -3,7 +3,7 @@ import history from '../config/history'
 import { connect } from 'react-redux'
 import { actions } from '../redux/actions/Action'
 import './UserArea.css'
-import CriterionsUser from './criterionsUser'
+import CriterionsUser from './CriterionsUser'
 import {
     Link,
     Redirect
@@ -19,7 +19,7 @@ export const UserArea = (props) => {
     const Messages = () => { }
     const criterions = () => {
         getAllApartment()
-        history.push('/criterionsUser')
+        history.push('/CriterionsUser')
 
     }
     const viewOrders = () => { }

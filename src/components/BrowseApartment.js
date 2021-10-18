@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import history from '../config/history'
 import { actions } from '../redux/actions/Action'
+import { ImageApartment } from './ImageApartment'
 
 
 export const BrowseApartment = (props) => {
@@ -24,17 +25,20 @@ export const BrowseApartment = (props) => {
 
             <div class="row row-wrapper">
                 <div class="col-md-4 renter-list-wrapper">
-                    {/* <button class="btn-add-item" onClick={addItem}>+</button> */}
-                    <h3>עיון בבקשות להוספת דירות נופש :</h3>
-                    {/* <h5>מנת לעדכן נתונים</h5> */}
+                    {apartments.apartmentsNew.length > 0 && <h3>רשימת הבקשות להוספת דירת נופש: ({apartments.apartmentsNew.length} תוצאות)</h3>}
+                    {apartments.apartmentsNew.length == 0 && <h3>!אין בקשות להוספת דירות נופש</h3>}
+
                     <div class="row justify-content-start row-content-wrapper no-gutters">
                         <div class="renter-item-card " >
-                            {apartments.apartmentsNew.length == 0 && <h5>!אין בקשות להוספת דירה</h5>}
+                            {/* {apartments.apartmentsNew.length == 0 && <h5>!אין בקשות להוספת דירה</h5>} */}
 
                             {apartments.apartmentsNew.length > 0 && apartments.apartmentsNew.map((item) => {
                                 return (
                                     <div class="row no-gutters" >
                                         <div class="col-md-8">
+
+                                            <ImageApartment images={item.images}></ImageApartment>
+
                                             <div class="card-body">
                                                 <h6 class="card-title"><strong>{item.name}</strong></h6>
                                                 <p class="card-text">{item.city} | {item.address}</p>

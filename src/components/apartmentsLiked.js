@@ -10,6 +10,7 @@ import {
     Router
 } from 'react-router-dom'
 import { actions } from '../redux/actions/Action'
+import { ImageApartment } from './ImageApartment'
 
 export const ApartmentsLiked = (props) => {
     const { apartments, userExist, getAllApartmentsLiked } = props;
@@ -32,6 +33,7 @@ export const ApartmentsLiked = (props) => {
                         return (
                             <div class="divCriterion" >
                                 {/* <img alt="" src={like} onClick={() => { markLoved(item) }} /> */}
+                                {/* <ImageApartment image={item.img}></ImageApartment> */}
 
                                 <h6 class="card-title"><strong>{item.name}</strong></h6>
                                 <p class="card-text">מיקום:{item.city} | {item.address}</p>

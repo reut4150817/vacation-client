@@ -92,3 +92,7 @@
     color: white;
 
 }
+.message{
+    border: none;
+    background-color: transparent;
+} 

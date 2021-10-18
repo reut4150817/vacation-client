@@ -14,12 +14,12 @@ export const BrowseSubscriber = (props) => {
         <div>
             <button class="btn-back" onClick={() => history.goBack()}>אחורה</button>
             <div class=" renter-list-wrapper">
-                {/* <button class="btn-add-item" onClick={addItem}>+</button> */}
-                <h3>עיון בבקשות לפתיחת מנוי :</h3>
-                {/* <h5>מנת לעדכן נתונים</h5> */}
+                {subscribers.newSubscriber.length > 0 && <h3>רשימת הבקשות לפתיחת מנוי: ({subscribers.newSubscriber.length} תוצאות)</h3>}
+                {subscribers.newSubscriber.length == 0 && <h3>!אין בקשות לפתיחת מנוי</h3>}
+                {/* <h3>עיון בבקשות לפתיחת מנוי :</h3> */}
                 <div class="row justify-content-start row-content-wrapper no-gutters">
                     <div class="renter-item-card " >
-                        {subscribers.newSubscriber.length == 0 && <h5>!אין בקשות לפתיחת מנוי</h5>}
+                        {/* {subscribers.newSubscriber.length == 0 && <h5>!אין בקשות לפתיחת מנוי</h5>} */}
 
                         {subscribers.newSubscriber.length > 0 && subscribers.newSubscriber.map((subscriber) => {
                             return (

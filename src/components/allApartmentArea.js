@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import history from '../config/history'
+import { ImageApartment } from './ImageApartment'
+
 export const allApartmentArea = (props) => {
 
     const { apartments, userExist } = props;
@@ -19,6 +21,7 @@ export const allApartmentArea = (props) => {
                         return (
                             <div class="divCriterion" >
                                 {/* <img alt="" src={like} onClick={() => { markLoved(item) }} /> */}
+                                {/* <ImageApartment image={item.img}></ImageApartment> */}
 
                                 <h6 class="card-title"><strong>{item.name}</strong></h6>
                                 <p class="card-text">{item.city} | {item.address}</p>

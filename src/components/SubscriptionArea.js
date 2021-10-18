@@ -11,6 +11,7 @@ import { connect } from 'react-redux'
 import { actions } from '../redux/actions/Action'
 import SubscriptionApartments from './SubscriptionApartments';
 import './SubscriptionArea.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const SubscriptionArea = (props) => {
 
@@ -33,7 +34,10 @@ export const SubscriptionArea = (props) => {
         // <NewItem></NewItem>
 
     }
-    const SubscriptionBoard = () => { }
+    const SubscriptionBoard = () => {
+
+
+    }
     const SubscriptionMessage = () => {
         getAllMessage({ name: userExist.userExist.name, password: userExist.userExist.password })
         history.push('/Messages')
@@ -43,28 +47,39 @@ export const SubscriptionArea = (props) => {
 
     return (
         <div>
-            <button class="btn-back" onClick={() => history.goBack()}>אחורה</button>
-            <button class="btn-back-2" onClick={logout}>התנתק</button>
-            <button class="btn-add-item" onClick={addNewItem}>+</button>
+            <div className="d-flex justify-content-start" style={{ backgroundColor: '#ff7100 ', height: '10vh' }}>
+                <button class="btn-back" onClick={() => history.goBack()}>אחורה</button>
+                <button class="btn-back-2" onClick={logout}>התנתק</button>
+                {/* <button class="btn-add-item" onClick={addNewItem}>+</button> */}
+                <button className="message" onClick={addNewItem} >
+                    <FontAwesomeIcon icon="plus" size="lg" color='  rgb(198 206 212)' titleI="plus" isnothover={true} />
+                </button>
+                <button className="message" onClick={SubscriptionMessage} >
+                    <FontAwesomeIcon icon="envelope-open-text" size="lg" color='  rgb(198 206 212)' titleI={"copy"} isnothover={true} />
+                </button>
+            </div>
 
             {/* <div class="row justify-content-center row-wrapper">
-
                 <Link to={`/SubscriptionApartments:${userExist.userExist.name}`} class="col-md-4 btn-subscriber-user">
                     צפיה בדירות שפרסמתי
                 </Link>
             </div> */}
+
+            {/* קומפוננטת של הצגת הדירות של בעל מנוי לפי שם משתמש וסיסמא */}
             <SubscriptionApartments></SubscriptionApartments>
+
             {/* <div class="row justify-content-center row-wrapper">
                 <button class="col-md-4 btn-subscriber-user" onClick={viewsubScriberItem}>צפיה בדירות שפרסמתי</button>
             </div> */}
             {/* <div class="row justify-content-center row-wrapper">
                 <button class="col-md-4 btn-subscriber-user" onClick={addNewItem}>בקשה לפרסום דירה </button>
             </div > */}
+            {/* <div class="row justify-content-center row-wrapper">
+                <button class="col-md-4 btn-subscriber-user" onClick={SubscriptionMessage}>צפיה בהודעות שנשלחו</button>
+            </div > */}
+
             <div class="row justify-content-center row-wrapper">
                 <button class="col-md-4 btn-subscriber-user" onClick={SubscriptionBoard}>צפיה בלוח הזמנות של הדירות</button>
-            </div >
-            <div class="row justify-content-center row-wrapper">
-                <button class="col-md-4 btn-subscriber-user" onClick={SubscriptionMessage}>צפיה בהודעות שנשלחו</button>
             </div >
         </div >
     )

@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import history from '../config/history'
 import { actions } from '../redux/actions/Action'
+import { ImageApartment } from './ImageApartment'
 
 export const Messages = (props) => {
     const { apartments, deleteMessage, userExist } = props;
@@ -17,17 +18,14 @@ export const Messages = (props) => {
                 <div class="messsages-container">
                     <div>
                         <div>
-                            <div class="my-messageText">צריך לשלוף הודעות</div>
-                            {/* *ngIf="m.IsClient" */}
-                            <div class="other-messageText">שנשלחו לבעל המנוי הזה</div>
-                            {/* *ngIf="!m.IsClient" */}
-
                             {apartments.messages.length == 0 && <h5>!!!!!!!!אין הודעות</h5>}
 
                             {apartments.messages.length > 0 && apartments.messages.map((item) => {
                                 return (
                                     <div class="row no-gutters" >
                                         <div class="col-md-8">
+                                            {/* <ImageApartment image={item.img}></ImageApartment> */}
+
                                             <div class="card-body">
                                                 <h6 class="card-title"><strong>!{item.nameUser} היקר</strong></h6>
 

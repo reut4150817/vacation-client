@@ -5,7 +5,9 @@ import history from '../config/history'
 import { useHistory } from "react-router-dom";
 import $ from "jquery";
 import { dataURLtoFile } from '../utility/utility';
-
+// import ReactDOM from 'react-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 import './NewItem.css'
 
@@ -28,9 +30,15 @@ function NewItem(props) {
     const [itemExtraPrice, setItemExtraPrice] = useState("")
     const [itemRemark, setItemRemark] = useState("")
     const [itemImg, setItemImg] = useState([])
-    const [render, setRender] = useState([])
+    // const [itemImgT, setItemImg] = useState([])
+
+    const [render, setRender] = useState(false)
 
     const [errorMessage, setErrorMessage] = useState("")
+
+    // const element = <FontAwesomeIcon icon={faCoffee} />
+
+
 
     // const readerLoaded = (e) => {
     //     const binaryString = e.target.result;
@@ -45,7 +53,7 @@ function NewItem(props) {
         // (image, `${formDetails.name}hello.png`
         const image = `${e.target.files[0].name},1.0`;
 
-        var file = dataURLtoFile(image, `reut hello.png`);
+        var file = dataURLtoFile(image, `reuthello.png`);
         console.log('file', file);
         var fileToUpload = file;
         var myFile = new FormData();
@@ -55,10 +63,11 @@ function NewItem(props) {
     const qqqqq = (e) => {
         let arr = itemImg
         for (let i = 0; i < e.target.files.length; i++) {
-            arr.push(URL.createObjectURL(e.target.files[i]))
+            arr.push(e.target.files[i])
         }
         setItemImg(arr)
         console.log('itemImg', itemImg);
+
 
         // const reader = new FileReader();
         // reader.onloadend = (e) => {
@@ -85,7 +94,7 @@ function NewItem(props) {
         // console.log("umage" + image);
         // 
         // console.log("binaryString" + binaryString);
-        setRender('file')
+        setRender(!render)
         // setItemImg(image)
 
         // console.log(e.target.result);
@@ -102,8 +111,9 @@ function NewItem(props) {
     const addSubscriberItem = () => {
 
         var myFile = new FormData();
+        // myFile.append("file", itemImg);
         myFile.append("file", itemImg[0]);
-        uploadImage(myFile)
+
         //בדיקות תקינות
         if (itenName === '') {
             setErrorMessage('חובה להזין שם')
@@ -119,40 +129,44 @@ function NewItem(props) {
             setErrorMessage('חובה להזין קומה')
         } else if (itemFloor < -10 || itemFloor > 50) {
             setErrorMessage('מספר הקומה שהוזן לא תקין')
+
+
             // } else if (this.newRenterItem.idCategory !== 3 && !Number(this.newRenterItem.mr)) {
             //   this.errorMessage = 'חובה להזין מ"ר';
             // } else if (this.newRenterItem.idCategory !== 3 && (this.newRenterItem.mr < 0 || this.newRenterItem.mr > 1000)) {
             //   this.errorMessage = 'מספר המ"ר שהוזן לא תקין';
-        } else if (itemRemark === '') {
-            setErrorMessage('חובה להזין הערות')
-        } else if (itemNumRooms === '') {
-            setErrorMessage('חובה להזין מספר חדרים')
-        } else if (itemNumRooms < 1 || itemNumRooms > 30) {
-            setErrorMessage('מספר החדרים שהוזן לא תקין')
-        } else if (itemDefaultPrice === '') {
-            setErrorMessage('חובה להזין מחיר')
-        } else if (itemDefaultPrice < 50) {
-            setErrorMessage('מחיר שהוזן לא תקין')
-        } else if (itemRegularWeekMidPrice === '') {
-            setErrorMessage('חובה להזין מחיר אמצע שבוע')
-        } else if (itemRegularWeekMidPrice < 50) {
-            setErrorMessage('מחיר אמצע שבוע שהוזן לא תקין')
-        } else if (itemRegularWeekEndPrice === '') {
-            setErrorMessage('חובה להזין מחיר סוף שבוע')
-        } else if (itemRegularWeekEndPrice < 50) {
-            setErrorMessage('מחיר סוף שבוע שהוזן לא תקין')
-        } else if (itemSeasonWeekMidPrice === '') {
-            setErrorMessage('חובה להזין מחיר אמצע שבוע בעונה')
-        } else if (itemSeasonWeekMidPrice < 50) {
-            setErrorMessage('מחיר אמצע שבוע בעונה שהוזן לא תקין')
-        } else if (itemSeasonWeekEndPrice === '') {
-            setErrorMessage('חובה להזין מחיר סוף שבוע בעונה')
-        } else if (itemSeasonWeekEndPrice < 50) {
-            setErrorMessage('מחיר סוף שבוע בעונה שהוזן לא תקין')
-        } else if (itemExtraPrice === '') {
-            setErrorMessage('חובה להזין תוספת מחיר למיטה')
-        } else if (itemExtraPrice < 50) {
-            setErrorMessage('תוספת מחיר למיטה שהוזן לא תקין')
+            // } else if (itemRemark === '') {
+            //     setErrorMessage('חובה להזין הערות')
+            // } else if (itemNumRooms === '') {
+            //     setErrorMessage('חובה להזין מספר חדרים')
+            // } else if (itemNumRooms < 1 || itemNumRooms > 30) {
+            //     setErrorMessage('מספר החדרים שהוזן לא תקין')
+            // } else if (itemDefaultPrice === '') {
+            //     setErrorMessage('חובה להזין מחיר')
+            // } else if (itemDefaultPrice < 50) {
+            //     setErrorMessage('מחיר שהוזן לא תקין')
+            // } else if (itemRegularWeekMidPrice === '') {
+            //     setErrorMessage('חובה להזין מחיר אמצע שבוע')
+            // } else if (itemRegularWeekMidPrice < 50) {
+            //     setErrorMessage('מחיר אמצע שבוע שהוזן לא תקין')
+            // } else if (itemRegularWeekEndPrice === '') {
+            //     setErrorMessage('חובה להזין מחיר סוף שבוע')
+            // } else if (itemRegularWeekEndPrice < 50) {
+            //     setErrorMessage('מחיר סוף שבוע שהוזן לא תקין')
+            // } else if (itemSeasonWeekMidPrice === '') {
+            //     setErrorMessage('חובה להזין מחיר אמצע שבוע בעונה')
+            // } else if (itemSeasonWeekMidPrice < 50) {
+            //     setErrorMessage('מחיר אמצע שבוע בעונה שהוזן לא תקין')
+            // } else if (itemSeasonWeekEndPrice === '') {
+            //     setErrorMessage('חובה להזין מחיר סוף שבוע בעונה')
+            // } else if (itemSeasonWeekEndPrice < 50) {
+            //     setErrorMessage('מחיר סוף שבוע בעונה שהוזן לא תקין')
+            // } else if (itemExtraPrice === '') {
+            //     setErrorMessage('חובה להזין תוספת מחיר למיטה')
+            // } else if (itemExtraPrice < 50) {
+            //     setErrorMessage('תוספת מחיר למיטה שהוזן לא תקין')
+
+
         }
         // } else if (!this.newRenterItem.Images || this.newRenterItem.Images.length === 0) {
         // this.errorMessage = 'חובה להוסיף לפחות תמונה אחת';
@@ -177,7 +191,9 @@ function NewItem(props) {
                 extraPrice: itemExtraPrice,
                 remark: itemRemark,
             }
-            saveNewItem(item);
+            uploadImage({ file: myFile, object: item })
+
+            // saveNewItem(item);
         }
 
     }
@@ -189,14 +205,28 @@ function NewItem(props) {
     return (
 
         <div>
-            <button class="btn-back" onClick={() => history.goBack()}>אחורה</button>
+            <div className="">
+                <button class="btn-back" onClick={() => history.goBack()}>אחורה</button>
+                {/* <FontAwesomeIcon icon="envelope-open-text" size="lg" Onclick={}/> */}
+            </div>
+            {/* <FontAwesomeIcon icon={["fal", "coffee"]} /> */}
+            {/* <FontAwesomeIcon icon="check-square" /> */}
+            {/* <FontAwesomeIcon icon={faCoffee} size="lg" /> */}
             <div class="row new-item-row-wrapper">
                 <div class="col-md-4 renter-list-wrapper">
                     {/* לבדוק מה עושה addItem */}
-                    <button class="btn-add-item" onClick={addItem}>+</button>
-                    <h3>רשימת הפריטים להשכרה:</h3>
-                    <h5>לחץ על פריט על מנת לעדכן נתונים</h5>
+                    {/* <button class="btn-add-item" onClick={addItem}>+</button> */}
+                    {/* <h3>רשימת הפריטים להשכרה:</h3> */}
+                    {/* <h5>לחץ על פריט על מנת לעדכן נתונים</h5> */}
                     <h3>הוספת דירה למאגר הדירות</h3>
+                    <div>
+
+                        {/* <FontAwesomeIcon icon={['fas', 'tablet-alt']} size="lg" /> */}
+                        {/* <FontAwesomeIcon icon={['fab', 'microsoft']} /> */}
+                        {/* <FontAwesomeIcon icon={['fab', 'envelope-open-text']} size='70px' /> */}
+                        {/* <FontAwesomeIcon icon="apple-alt" size='70px' /> */}
+
+                    </div>
                     <div class="row justify-content-start row-content-wrapper no-gutters">
                         <div class="renter-item-card " >
                             <div class="col-md-8">
@@ -227,6 +257,7 @@ function NewItem(props) {
                                     }
                                 </select>
                             </div>
+
                             <div class="form-group">
                                 <label for="nameSubscriberItem">שם הצימר</label>
                                 <input type="text" class="form-control" name="nameSubscriberItem" onChange={(e) => { setItemName(e.target.value) }} required />
@@ -318,7 +349,7 @@ function NewItem(props) {
                                     {/* <img src={`data:image/jpeg;base64,{itemImg}`} /> */}
                                     {itemImg.map(item => {
 
-                                        return <img src={item} />
+                                        return <img src={URL.createObjectURL(item)} />
                                     })}
 
 

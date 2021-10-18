@@ -1,12 +1,15 @@
 import Http, { HttpFile } from '../../config/axios'
 import { actions } from '../actions/Action'
 import history from '../../config/history'
+import axios from 'axios';
+
 import {
     BrowserRouter as Router,
     Route,
     Switch,
     Redirect
 } from 'react-router-dom'
+import { act } from 'react-dom/test-utils';
 
 
 export const saveNewUser = ({ dispatch, getState }) => next => action => {
@@ -62,7 +65,7 @@ export const saveNewManager = ({ dispatch, getState }) => next => action => {
 export const saveNewItem = ({ dispatch, getState }) => next => action => {
     if (action.type === 'SAVE_NEW_ITEM') {
         dispatch(actions.newApartment({ apartment: action.payload.data }))
-        Http.post(`/saveNewItem`, action.payload.data)
+        Http.post(`/saveNewItem`, action.payload)
             .then(res => {
                 console.log(res.data);
                 // dispatch(actions.setIsLoading(false));
@@ -403,15 +406,44 @@ export const saveNewItemLiked = ({ dispatch, getState }) => next => action => {
 
 export const uploadImage = ({ dispatch, getState }) => next => action => {
     if (action.type === 'UPLOAD_IMAGE') {
-        // dispatch(actions.newApartment({ apartment: action.payload.data }))
-        HttpFile.post(`/uploadImage/yuyu`, action.payload.data)
+        let file = action.payload.data.file;
+        let object = action.payload.data.object;
+        var requestOptions = {
+            method: 'POST',
+            body: action.payload.data.file,
+            redirect: 'follow'
+        };
+
+        fetch("http://localhost:8765/api/uploadImage/hhsaxd", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                console.log("dsads", JSON.parse(result).linkImage)
+                object.images = JSON.parse(result).linkImage
+                console.log("object" + object);
+                dispatch(actions.saveNewItem(object))
+            }
+            )
+            .catch(error => console.log('error', error));
+
+
+    } return next(action);
+}
+
+export const getApartmentsCriteria = ({ dispatch, getState }) => next => action => {
+    if (action.type === 'GET_APARTMENTS_CRITERIA') {
+        // dispatch(actions.setFrame({ key: 'isLoading', value: true }))
+        Http.get(`/getApartmentsCriteria/`, action.payload.data)
             .then(res => {
-                console.log(res.data);
-                // dispatch(actions.setIsLoading(false));
+                console.log("getttt", res);
+                // dispatch(actions.setAllApartmentsLiked(res.data))
+                // dispatch(actions.setFrame({ key: 'isLoading', value: false }))
             })
             .catch(error => {
                 console.log(error)
-                // dispatch(actions.setIsLoading(false));
+                // dispatch(actions.setFrame({ key: 'isLoading', value: false }))
             });
-    } return next(action);
-}
+        return;
+    }
+    return next(action);
+};
+

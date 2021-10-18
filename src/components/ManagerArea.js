@@ -28,10 +28,10 @@ export const ManagerArea = (props) => {
             <button class="btn-back-2" onClick={logout}>התנתק</button>
             <div>
                 <div class="row justify-content-center row-wrapper">
-                    <button class="col-md-4 btn-renter-user" onClick={BrowseSubscriber}>עיון בבקשה לפתיחת מנוי</button>
+                    <button class="col-md-4 btn-renter-user" onClick={BrowseSubscriber}>עיון בבקשות לפתיחת מנוי</button>
                 </div>
                 <div class="row justify-content-center row-wrapper">
-                    <button class="col-md-4 btn-renter-user" onClick={BrowseApartment}>עיון בבקשה להוספת דירה</button>
+                    <button class="col-md-4 btn-renter-user" onClick={BrowseApartment}>עיון בבקשות להוספת דירה</button>
                 </div >
                 {/* <div class="row justify-content-center row-wrapper">
                     <button class="col-md-4 btn-subscriber-user" onClick={SubscriptionBoard}>צפיה בלוח הזמנות של הדירות</button>

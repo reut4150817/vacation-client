@@ -3,7 +3,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 import appReducers from './reducers/appReducers';
 // import { extractJwt } from './middelware/crud'
-import { saveNewUser, saveNewSubscriber, saveNewManager, getAllArea, saveNewItem, getAllUserApartment, getAllApartmentArea, getAllMessage, connectS, connectU, connectM, getManager, getAllApartmentNew, getAllSubscriberNew, additionToApartments, additionToSubscribers, deleteMessage, getAllApartment, getAllApartmentsLiked, saveNewItemLiked, uploadImage } from './middleWare/login.middleWare'
+import { saveNewUser, saveNewSubscriber, saveNewManager, getAllArea, saveNewItem, getAllUserApartment, getAllApartmentArea, getAllMessage, connectS, connectU, connectM, getManager, getAllApartmentNew, getAllSubscriberNew, additionToApartments, additionToSubscribers, deleteMessage, getAllApartment, getAllApartmentsLiked, saveNewItemLiked, uploadImage, getApartmentsCriteria } from './middleWare/login.middleWare'
 // import appMiddleware from './middlewares/appMiddleware'
 
 
@@ -30,7 +30,8 @@ const store = createStore(
             getAllApartment,
             getAllApartmentsLiked,
             saveNewItemLiked,
-            uploadImage
+            uploadImage,
+            getApartmentsCriteria
             // newUser
             // extractJwt,
             // getAllForms,

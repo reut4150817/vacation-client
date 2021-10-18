@@ -20,7 +20,7 @@ import NewManager from '../components/NewManager'
 import ManagerArea from '../components/ManagerArea'
 import Messages from '../components/Messages'
 import BrowseApartment from '../components/BrowseApartment'
-import criterionsUser from '../components/criterionsUser'
+import CriterionsUser from '../components/CriterionsUser'
 import ApartmentsLiked from '../components/ApartmentsLiked'
 import allApartmentArea from '../components/allApartmentArea'
 import BrowseSubscriber from '../components/BrowseSubscriber'
@@ -148,9 +148,9 @@ export default function Routes(props) {
                     component={BrowseSubscriber}
                 />
                 <Route
-                    path="/criterionsUser"
+                    path="/CriterionsUser"
                     exact
-                    component={criterionsUser}
+                    component={CriterionsUser}
                 />
                 <Route
                     path="/ApartmentsLiked"

@@ -13,10 +13,10 @@ function LoginManager(props) {
     const [managerPersonalCode, setManagerPersonalCode] = useState("")
     const history = useHistory();
 
-    const newManager = () => {
+    // const newManager = () => {
 
-        history.push('/NewManager')
-    }
+    //     history.push('/NewManager')
+    // }
 
     const connectManager = () => {
         connectM({ name: managerName, password: managerPersonalCode })
@@ -42,7 +42,7 @@ function LoginManager(props) {
                 </div>
                 <label for="connect" class="error-label" ></label>
                 <button id="connect" type="submit" onClick={connectManager} class="btn-connect">התחבר</button>
-                <div onClick={newManager}>מנהל חדש ? לחץ כאן</div>
+                {/* <div onClick={newManager}>מנהל חדש ? לחץ כאן</div> */}
 
             </div>
         </div>
